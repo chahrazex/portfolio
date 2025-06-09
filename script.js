@@ -1,12 +1,4 @@
-// Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Smooth Scrolling
+// Add smooth scrolling for new publications section
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -19,21 +11,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Sticky Header
+// Add active class to current section in navigation
+const sections = document.querySelectorAll('section');
 window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 0);
-});
-
-// Project Card Animation
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.querySelector('.project-info').style.transform = 'translateY(0)';
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if(pageYOffset >= sectionTop - 300){
+            current = section.getAttribute('id');
+        }
     });
     
-    card.addEventListener('mouseleave', () => {
-        card.querySelector('.project-info').style.transform = 'translateY(100%)';
+    document.querySelectorAll('nav ul li a').forEach(a => {
+        a.classList.remove('active');
+        if(a.getAttribute('href').includes(current)){
+            a.classList.add('active');
+        }
     });
 });
