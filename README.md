@@ -18,4 +18,4 @@ This is my personal portfolio website showcasing my projects and skills.
 2. Open `index.html` in your browser
 
 ## Live Demo
-[View Live on GitHub Pages](https://yourusername.github.io/portfolio/)
+[View Live on GitHub Pages](https://chahrazex.github.io/portfolio/)
