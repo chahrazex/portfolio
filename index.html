@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chahrazed Benrebbouh | Network Security & IoT Researcher</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-weight: 500;
+            margin: 0 5px;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 100px 0;
+            margin-bottom: 50px;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card .img-container {
+             border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-weight: 600;
+        }
+        
+        .badge-custom {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid white;
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .publication-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .contact-form .form-control {
+            border-radius: 0;
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        
+        .contact-form .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #2980b9;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .progress {
+            height: 8px;
+            border-radius: 4px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+        }
+
+        /* Project filter styles */
+        .filter-buttons {
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .project-item {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .project-item.hide {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        
+        .project-tags {
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 50px;
+            margin-right: 5px;
+            text-transform: uppercase;
+        }
+
+        .tag-design {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .tag-development {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 70px 0;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center !important;
+            }
+            
+            .section-title {
+                text-align: center;
+            }
+            
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .timeline {
+                padding-left: 30px;
+            }
+            
+            .timeline:before {
+                left: 10px;
+            }
+            
+            .timeline-item:before {
+                left: -30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Chahrazed Benrebbouh</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#publications">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1>Chahrazed Benrebbouh</h1>
+                    <p>PhD Student — Network Security & IoT Systems</p>
+                    <div class="d-flex social-icons">
+                        <a href="mailto:chahrazed.benrebbouh@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://scholar.google.com/citations?user=uJwQEFwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://github.com/chahrazex" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/chahrazed-benrebbouh-31216119a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <img src="https://placehold.co/300x300/3498db/ffffff?text=CB" alt="Profile Image" class="img-fluid rounded-circle">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>PhD Student specializing in secure architectures for IoT-based Energy Internet. Expertise includes post-quantum cryptography, blockchain, and AI-driven intrusion detection. Strong publication record with over 10 peer-reviewed works. Experienced in collaborative research, teaching, and mentoring.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <p><strong>Location:</strong> Setif, Algeria</p>
+                            <!-- <p><strong>Phone:</strong> +213 672870031</p> -->
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Email:</strong> chahrazed.benrebbouh@gmail.com</p>
+                            <p><strong>Languages:</strong> Arabic (Native), English (Professional), French (Professional)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                        <!-- Skills Section -->
+                <h5 class="section-title">Technical Skills</h2>
+                 <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title fw-bold">Security</h5>
+                            <p><span class="badge bg-secondary skill-badge">BAN Logic</span> <span class="badge bg-secondary skill-badge">AVISPA</span> <span class="badge bg-secondary skill-badge">ProVerif</span> <span class="badge bg-secondary skill-badge">Kyber</span> <span class="badge bg-secondary skill-badge">Falcon</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                     <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-cubes fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title fw-bold">Blockchain & AI</h5>
+                            <p><span class="badge bg-secondary skill-badge">Hyperledger</span> <span class="badge bg-secondary skill-badge">Ethereum</span> <span class="badge bg-secondary skill-badge">Smart Contracts</span> <span class="badge bg-secondary skill-badge">CNNs</span> <span class="badge bg-secondary skill-badge">GANs</span> <span class="badge bg-secondary skill-badge">TensorFlow</span></p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 mb-4">
+                     <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title fw-bold">Programming & Tools</h5>
+                            <p><span class="badge bg-secondary skill-badge">Python</span> <span class="badge bg-secondary skill-badge">Java</span> <span class="badge bg-secondary skill-badge">C++</span> <span class="badge bg-secondary skill-badge">HTML/CSS</span> <span class="badge bg-secondary skill-badge">Docker</span> <span class="badge bg-secondary skill-badge">Git</span> <span class="badge bg-secondary skill-badge">Android Studio</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                    <!-- <h5 class="mb-3">Technical Skills</h5>
+                    <div class="skill-item">
+                        <div class="skill-name">Security (BAN Logic, AVISPA, ProVerif, Kyber, Falcon)</div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Blockchain (Hyperledger Fabric, Ethereum, Smart Contracts)</div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">AI/ML (CNNs, GANs, SHAP, TensorFlow)</div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Programming (Python, C++, Java, PHP, HTML/CSS)</div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>Ph.D. in Networks & Distributed Systems</h4>
+                    <div class="timeline-date">2022–Expected Jun 2025</div>
+                    <p><strong>Ferhat Abbas University, Setif 1, Algeria</strong></p>
+                    <p>Dissertation: Security for IoT-based Energy Internet</p>
+                    <ul>
+                        <li>Developed secure protocols integrating blockchain, post-quantum cryptography, and AI</li>
+                        <li>Supervisors: Prof. Mansouri Houssem & Dr. Sarra Cherbal</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h4>M.Sc. in Networks & Distributed Systems</h4>
+                    <div class="timeline-date">2019–2021</div>
+                    <p><strong>Ferhat Abbas University, Setif, Algeria</strong></p>
+                    <ul>
+                        <li>Ranked 1st in cohort</li>
+                        <li>Thesis: Dynamic TDMA scheduling for WSNs</li>
+                        <li>Produced 2 conference publications</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h4>B.Sc. in Information Systems</h4>
+                    <div class="timeline-date">2016–2019</div>
+                    <p><strong>Ferhat Abbas University, Setif, Algeria</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Research Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Visiting Researcher (ODA Funding)</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Coventry University, UK</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Dec 2024–Feb 2025</h6>
+                            <ul class="card-text">
+                                <li>Developed adversarially robust IDS for smart grids using GAN defense techniques</li>
+                                <li>Prepared journal manuscript (under review)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Research Intern</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Coventry University, UK</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Sep–Oct 2024</h6>
+                            <ul class="card-text">
+                                <li>Designed explainable CNN-based IDS using SHAP</li>
+                                <li>Published in IEEE ICT-DM 2024</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Research Intern</div>
+                        <div class="card-body">
+                            <h5 class="card-title">ERIC Lab, Lyon 2 University, France</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Nov–Dec 2023</h6>
+                            <ul class="card-text">
+                                <li>Conducted systematic review of Energy Internet security approaches</li>
+                                <li>Produced a survey paper (under review)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="container">
+            <h2 class="section-title">Teaching Experience</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Part-Time Lecturer</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Teacher Education College Messaoud Zeghar Setif</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">2025–Present</h6>
+                            <p class="card-text">Course: Information Technology for Teaching</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Part-Time Lecturer</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Ferhat Abbas University Setif 1</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">2022–2024</h6>
+                            <p class="card-text">Courses: Algorithms & Data Structures, Web Development, P2P Systems</p>
+                            <p class="card-text">Co-supervised 4 MSc theses (3 published)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Substitute Teacher</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Daikh El Aid Middle School Setif</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"> Mar 2022-Jun 2022</h6>
+                            <p class="card-text">Course: Computer science</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Publications Section -->
+    <section id="publications" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Journal Articles</h4>
+                    <div class="publication-item">
+                        <h5>Enhanced mutual authentication protocol for IoT-based energy internet using blockchain</h5>
+                        <p><em>Peer-to-Peer Networking and Applications</em> (2024)</p>
+                        <a href="https://doi.org/10.1007/s12083-023-01580-z" target="_blank" class="btn btn-sm btn-outline-primary">View Publication</a>
+                    </div>
+                    <div class="publication-item">
+                        <h5>Quantum-resistant security scheme for IoT-based energy internet</h5>
+                        <p><em>International Journal of Sensor Networks</em> (2023)</p>
+                        <a href="https://doi.org/10.1504/IJSNET.2023.133813" target="_blank" class="btn btn-sm btn-outline-primary">View Publication</a>
+                    </div>
+                     <div class="publication-item">
+                        <h5>Blockchain Approach for Healthcare Using Fog Topology and Lightweight Consensus</h5>
+                        <p><em>Acta Informatica Pragensia</em> (2025)</p>
+                        <a href="https://aip.vse.cz/artkey/aip-202501-0007_blockchain-approach-for-healthcare-using-fog-topology-and-lightweight-consensus.php" target="_blank" class="btn btn-sm btn-outline-primary">View Publication</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Conference Papers</h4>
+                    <div class="publication-item">
+                        <h5>Explainable CNN-based Intrusion Detection System for Smart Grid Security</h5>
+                        <p><em>IEEE ICT-DM</em> (2024)</p>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10798953" target="_blank" class="btn btn-sm btn-outline-primary">View Publication</a>
+                    </div>
+                    <div class="publication-item">
+                        <h5>Post-Quantum Blockchain for IoT-based Energy Internet</h5>
+                        <p><em>IEEE PAIS</em> (2023)</p>
+                        <a href="https://ieeexplore.ieee.org/abstract/document/10322026" target="_blank" class="btn btn-sm btn-outline-primary">View Publication</a>
+                    </div>
+                    <div class="publication-item">
+                         <h5>Distributed TDMA for IoT Using Dynamic Slot Assignment</h5>
+                        <p><em>Springer ACR</em> (2023)</p>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-33743-7_38" target="_blank" class="btn btn-sm btn-outline-primary">View Publication</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="https://scholar.google.com/citations?user=uJwQEFwAAAAJ" target="_blank" class="btn btn-primary">View All Publications on Google Scholar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <!-- Filter Buttons -->
+            <div class="text-center filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="development">Development</button>
+            </div>
+            <!-- Project Items -->
+            <div class="row" id="project-list">
+                <div class="col-md-6 col-lg-4 project-item" data-tags="development">
+                    <div class="card h-100">
+                         <div class="img-container">
+                            <img src="assets/images/ftp.png" class="card-img-top" alt="FTP Client Project">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="flex-grow-1">
+                                <h5 class="card-title">FTP Client</h5>
+                                <p class="card-text">Desktop-based FTP browser built with Java for managing remote files.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag tag-development">Development</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/chahrazex/FTP_Client/tree/master" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 project-item" data-tags="development">
+                    <div class="card h-100">
+                        <div class="img-container">
+                            <img src="assets/images/bepeer.png" class="card-img-top" alt="BePeer Project">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                             <div class="flex-grow-1">
+                                <h5 class="card-title">BePeer</h5>
+                                <p class="card-text">P2P chat and file-sharing application using Java sockets.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag tag-development">Development</span>
+                                </div>
+                             </div>
+                            <a href="https://github.com/chahrazex/APP_P2P" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 project-item" data-tags="development">
+                    <div class="card h-100">
+                        <div class="img-container">
+                            <img src="assets/images/RM.png" class="card-img-top" alt="Mobile Network Simulator Project">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                             <div class="flex-grow-1">
+                                <h5 class="card-title">Mobile Network Simulator</h5>
+                                <p class="card-text">Mini simulation of mobile nodes and their communication links.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag tag-development">Development</span>
+                                </div>
+                             </div>
+                            <a href="https://github.com/chahrazex/Mini_Simulateur_Reseau_Mobile" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 project-item" data-tags="development">
+                    <div class="card h-100">
+                         <div class="img-container">
+                            <img src="assets/images/LGC.png" class="card-img-top" alt="LGC Chat Project">
+                         </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="flex-grow-1">
+                                <h5 class="card-title">LGC Chat</h5>
+                                <p class="card-text">Android chat app using Firebase for real-time messaging.</p>
+                                 <div class="project-tags">
+                                    <span class="project-tag tag-development">Development</span>
+                                </div>
+                            </div>
+                            <a href="https://github.com/chahrazex/App_Android_Chat" target="_blank" class="btn btn-sm btn-outline-primary mt-auto">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-6 col-lg-4 project-item" data-tags="design">
+                    <div class="card h-100">
+                        <div class="img-container">
+                            <img src="assets/images/FoodHome.png" class="card-img-top" alt="UI/UX Concept Project">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="flex-grow-1">
+                                <h5 class="card-title">Home Food Brand</h5>
+                                <p class="card-text">Concept design for a secure messaging application, focusing on usability.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag tag-design">Design</span>
+                                </div>
+                            </div>
+                            <a href="https://www.behance.net/gallery/133078887/Home-Food-Logo" class="btn btn-sm btn-outline-primary mt-auto">View Concept</a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-6 col-lg-4 project-item" data-tags="design development">
+                    <div class="card h-100">
+                         <div class="img-container">
+                            <img src="https://placehold.co/600x400/1abc9c/ffffff?text=Portfolio+Site" class="card-img-top" alt="Portfolio Website Project">
+                         </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="flex-grow-1">
+                                <h5 class="card-title">Personal Portfolio</h5>
+                                <p class="card-text">This personal portfolio website you are currently viewing.</p>
+                                 <div class="project-tags">
+                                    <span class="project-tag tag-design">Design</span>
+                                    <span class="project-tag tag-development">Development</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-sm btn-outline-primary mt-auto">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Research Collaboration & Inquiries</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Get In Touch</h4>
+                    <p>I’m a PhD candidate in the final stages of my research, actively exploring Postdoctoral Fellowships, research collaborations, and opportunities 
+                        that bridge academia and industry—particularly in network security, smart grids, IoT systems, blockchain, AI, and post-quantum cryptography.</p>
+                    <div class="mb-4">
+                        <h5>I'm open to:</h5>
+                        <ul>
+                            <li>Postdoctoral Research Positions</li>
+                            <li>Research Collaboration</li>
+                            <li>Technical Consulting</li>
+                            <li>Scientific Writing & Publications</li>
+            
+                        </ul>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope me-2"></i> chahrazed.benrebbouh@gmail.com</p>
+                        <p><i class="fas fa-phone me-2"></i> +213 672870031</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Setif, Algeria</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form id="contactForm" class="contact-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-control" id="service" required>
+                                <option value="">Select Service</option>
+                                <option value="security">Postdoctoral Research Positions</option>
+                                <option value="development">Research Collaboration</option>
+                                <option value="architecture">Technical Consulting</option>
+                                <option value="research">Scientific Writing & Publications</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    <div id="formSuccess" class="alert alert-success mt-3" style="display: none;">
+                        Thank you for your message! I'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="mailto:chahrazed.benrebbouh@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?user=uJwQEFwAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://github.com/chahrazex" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/chahrazed-benrebbouh-31216119a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <p>&copy; 2025 Chahrazed Benrebbouh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show a success message
+            document.getElementById('formSuccess').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(function() {
+                document.getElementById('formSuccess').style.display = 'none';
+            }, 5000);
+        });
+        
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.backgroundColor = 'var(--secondary-color)';
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Project filter functionality with animation
+        const filterContainer = document.querySelector('.filter-buttons');
+        const projectItems = document.querySelectorAll('.project-item');
+        const projectList = document.querySelector('#project-list');
+
+        filterContainer.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('filter-btn')) return;
+
+            // Update active button
+            filterContainer.querySelector('.active').classList.remove('active');
+            e.target.classList.add('active');
+
+            const filterValue = e.target.getAttribute('data-filter');
+            
+            projectItems.forEach(item => {
+                const tags = item.getAttribute('data-tags');
+                const shouldShow = filterValue === 'all' || tags.includes(filterValue);
+                
+                // Check if item should be hidden
+                if (!shouldShow) {
+                    item.classList.add('hide');
+                    // After transition, set display to none so it doesn't take up space
+                    // The timeout duration should match the CSS transition duration
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 400); 
+                } else {
+                     // If it should be shown, remove 'hide' and set display to 'block'
+                     item.style.display = 'block';
+                     // A tiny timeout to allow the 'display' change to be rendered before animation starts
+                     setTimeout(() => {
+                        item.classList.remove('hide');
+                    }, 10);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
